@@ -1,5 +1,5 @@
 # RaspChecker
-###Simple scripts to monitor CPU/GPU temp, Volts and throttle events
+### Simple scripts to monitor CPU/GPU temp, Volts and throttle events
 
 The installer.sh will:
 - create the logs dir that is the defauolt to store logs file and the archives
