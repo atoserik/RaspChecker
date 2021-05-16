@@ -13,6 +13,10 @@ if [ ! -d $logsDir ]; then
 	mkdir $logsDir
 fi
 
+echo "sustituting rootDir"
+sed -e "s:placeholder:'$rootDir':g" ./bin/*sh
+
+
 echo "setting up crontab"
 
 crontab -l -u $suer >> original_crontab.cron_${today}

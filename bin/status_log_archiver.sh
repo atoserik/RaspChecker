@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rootDir="/opt/Software/RaspChecker/"
+LogDir=$rootDir"logs/"
+
 if [ $# -eq 0 ] ; then
    LastMonth=$(($(date +%Y%m) - 1))
 else
@@ -7,7 +10,6 @@ else
   LastMonth="$1" 
 fi
 
-LogDir='/opt/Software/RaspChecker/logs'
 LogFile="Archive_"$LastMonth".log"
 
 echo "--- Inizio archiviazione ---" >> $LogDir"/"$LogFile
