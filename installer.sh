@@ -14,7 +14,7 @@ if [ ! -d $logsDir ]; then
 fi
 
 echo "sustituting rootDir"
-sed -e --in-place "s:placeholder:$rootDir/:g" ./bin/*sh
+sed -i "s:placeholder:$rootDir/:g" ./bin/*sh
 
 
 echo "setting up crontab"
