@@ -1,7 +1,13 @@
 #!/bin/bash
 
-LogDir='/opt/RaspChecker/logs'
-LastMonth=$(($(date +%Y%m) - 1))
+if [ $# -eq 0 ] ; then
+   LastMonth=$(($(date +%Y%m) - 1))
+else
+  echo "Interactive mode detected: LastMonth will be set to $1" 
+  LastMonth="$1" 
+fi
+
+LogDir='/opt/Software/RaspChecker/logs'
 LogFile="Archive_"$LastMonth".log"
 
 echo "--- Inizio archiviazione ---" >> $LogDir"/"$LogFile
@@ -14,7 +20,7 @@ else
     exit 99
 fi
 
-find $LogDir -name "*$LastMonth*log" | xargs -I {} cp {} $LogDir/$LastMonth/
+find $LogDir -name "*$LastMonth*log" | xargs -I {} mv {} $LogDir/$LastMonth/
 rc=$?
 if [ $rc == 0 ]; then
     NumFile=`ls -A $LogDir/$LastMonth | wc -l`
