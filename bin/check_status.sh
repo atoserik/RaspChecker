@@ -1,7 +1,7 @@
 #!/bin/bash
 
 today=$(date +%Y%m%d)
-rootDir="/opt/Software/RaspChecker/"
+rootDir="placeholder"
 logDir=$rootDir"logs/"
 logFile=$logDir"status_"${today}".log"
 

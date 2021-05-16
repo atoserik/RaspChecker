@@ -1,0 +1,4 @@
+## RaspChecker Section ##
+15 00 1 * * /opt/Software/RaspChecker/bin/status_log_archiver.sh
+*/2 * * * * /opt/Software/RaspChecker/bin/check_status.sh
+

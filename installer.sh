@@ -27,6 +27,6 @@ echo "## RaspChecker Section ##
 */2 * * * * /opt/Software/RaspChecker/bin/check_status.sh
 " >> updated.cron
 
-crontab updated.cron
+crontab -u $user updated.cron
 
 echo "Installation completed!"

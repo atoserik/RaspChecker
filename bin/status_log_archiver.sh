@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rootDir="/opt/Software/RaspChecker/"
+rootDir="placeholder"
 LogDir=$rootDir"logs/"
 
 if [ $# -eq 0 ] ; then
