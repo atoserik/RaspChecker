@@ -3,8 +3,8 @@
 echo "Setting up env"
 
 rootDir=`pwd`
-binDir=$rootDir"bin"
-logsDir=$rootDir"logs"
+binDir=$rootDir"/bin"
+logsDir=$rootDir"/logs"
 today=$(date +%Y%m%d)
 user=`whoami`
 
@@ -14,17 +14,18 @@ if [ ! -d $logsDir ]; then
 fi
 
 echo "sustituting rootDir"
-sed -e "s:placeholder:'$rootDir':g" ./bin/*sh
+sed -e --in-place "s:placeholder:$rootDir/:g" ./bin/*sh
 
 
 echo "setting up crontab"
 
-crontab -l -u $suer >> original_crontab.cron_${today}
-cp original_${today} updated.cron
+crontab -l -u $user >> original_crontab.cron_${today}
+cp original_crontab.cron_${today} updated.cron
 
-echo "## RaspChecker Section ##
-15 00 1 * * /opt/Software/RaspChecker/bin/status_log_archiver.sh
-*/2 * * * * /opt/Software/RaspChecker/bin/check_status.sh
+echo "
+## RaspChecker Section ##
+15 00 1 * * $binDir/status_log_archiver.sh
+*/2 * * * * $binDir/check_status.sh
 " >> updated.cron
 
 crontab -u $user updated.cron
