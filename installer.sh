@@ -10,7 +10,7 @@ user=`whoami`
 
 echo "Looking for log dir"
 if [ ! -d $logsDir ]; then
-	mkdir $logsDir
+  mkdir -p $logsDir
 fi
 
 git checkout -b RaspChecker_${today}
