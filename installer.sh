@@ -18,6 +18,9 @@ git checkout -b RaspChecker_${today}
 echo "Substituting rootDir"
 sed -i "s:placeholder:$rootDir/:g" ./bin/*sh
 
+git add . 
+git commit -m "committing locally changes of the root dir"
+
 echo "Setting up crontab"
 
 crontab -l -u $user >> original_crontab.cron_${today}
