@@ -15,11 +15,10 @@ fi
 
 git checkout -b RaspChecker_${today}
 
-echo "sustituting rootDir"
+echo "Substituting rootDir"
 sed -i "s:placeholder:$rootDir/:g" ./bin/*sh
 
-
-echo "setting up crontab"
+echo "Setting up crontab"
 
 crontab -l -u $user >> original_crontab.cron_${today}
 cp original_crontab.cron_${today} updated.cron
