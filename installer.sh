@@ -13,6 +13,8 @@ if [ ! -d $logsDir ]; then
 	mkdir $logsDir
 fi
 
+git checkout -b RaspChecker_${today}
+
 echo "sustituting rootDir"
 sed -i "s:placeholder:$rootDir/:g" ./bin/*sh
 
