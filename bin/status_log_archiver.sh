@@ -4,7 +4,7 @@ rootDir="placeholder"
 LogDir=$rootDir"logs/"
 
 if [ $# -eq 0 ] ; then
-   LastMonth=$(($(date +%Y%m) - 1))
+   LastMonth=$(date -d "`date` -1 days" +%Y%m)
 else
   echo "Interactive mode detected: LastMonth will be set to $1" 
   LastMonth="$1" 
