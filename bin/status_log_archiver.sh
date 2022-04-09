@@ -1,10 +1,11 @@
 #!/bin/bash
 
-rootDir="placeholder"
+rootDir="/opt/Software/RaspChecker/"
 LogDir=$rootDir"logs/"
 
 if [ $# -eq 0 ] ; then
-   LastMonth=$(date -d "`date` -1 days" +%Y%m)
+  LastMonth=`date --date='-1 month' +"%Y%m"`
+  echo "Batch mode detected: LastMonth is  set to $LastMonth"
 else
   echo "Interactive mode detected: LastMonth will be set to $1" 
   LastMonth="$1" 
@@ -43,4 +44,3 @@ if [ $rc == 0 ] ; then
         echo "Pulizia della cartella in errore" >> $LogDir/$LogFile
     fi
 fi
-
